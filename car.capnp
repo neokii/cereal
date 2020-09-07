@@ -113,6 +113,9 @@ struct CarEvent @0x9b1657f34caf3ad3 {
     neosUpdateRequired @88;
     modeldLagging @89;
     deviceFalling @90;
+    turningIndicatorOn @91;
+    lkasButtonOff @92;
+    autoLaneChange @93;
   }
 }
 
@@ -172,7 +175,7 @@ struct CarState {
 
   # clutch (manual transmission only)
   clutchPressed @28 :Bool;
-
+  
   # which packets this state came from
   canMonoTimes @12: List(UInt64);
 
@@ -406,6 +409,10 @@ struct CarParams {
   communityFeature @46: Bool;  # true if a community maintained feature is detected
   fingerprintSource @49: FingerprintSource;
   networkLocation @50 :NetworkLocation;  # Where Panda/C2 is integrated into the car's CAN network
+  mdpsBus @51: Int8;
+  sasBus @52: Int8;
+  sccBus @53: Int8;
+  spasEnabled @54: Bool;
 
   struct LateralParams {
     torqueBP @0 :List(Int32);
